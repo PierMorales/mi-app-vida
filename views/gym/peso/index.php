@@ -2,13 +2,20 @@
 
 <h1>⚖️ Registro de Peso</h1>
 
-<div class="kpi-card form-container">
-<form method="POST" action="peso.php?action=store">
-    <input type="date" name="fecha" required>
-    <input type="number" step="0.1" name="peso" placeholder="Peso en kg" required>
-    <button type="submit" class="btn-principal">Guardar</button>
-</form>
+<a href="peso.php?action=crear" class="btn">➕ Nuevo Registro</a>
+<br><br>
+
+<?php if (($_GET['action'] ?? '') === 'crear'): ?>
+<div class="kpi-card">
+    <form method="POST" action="peso.php?action=store">
+        <input type="date" name="fecha" required>
+        <input type="number" step="0.1" name="peso" placeholder="Peso en kg" required>
+        <br><br>
+        <button type="submit" class="btn">Guardar</button>
+    </form>
 </div>
+<br>
+<?php endif; ?>
 
 <br>
 

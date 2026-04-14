@@ -2,23 +2,24 @@
 
 <h1>🎯 Metas</h1>
 
-<div class="kpi-card form-container">
 <a href="metas.php?action=crear" class="btn">➕ Nueva Meta</a>
 <br><br>
 
 <?php if (($_GET['action'] ?? '') === 'crear'): ?>
-<form method="POST" action="metas.php?action=store">
-    <input type="text" name="nombre_meta" placeholder="Nombre de la meta" required>
-    <input type="number" step="0.01" name="monto_objetivo" placeholder="Monto objetivo" required>
-    <input type="date" name="fecha_objetivo" required>
+<div class="kpi-card">
+    <form method="POST" action="metas.php?action=store">
+        <input type="text" name="nombre_meta" placeholder="Nombre de la meta" required>
+        <input type="number" step="0.01" name="monto_objetivo" placeholder="Monto objetivo" required>
+        <input type="date" name="fecha_objetivo" required>
 
-    <select name="tipo" required>
-        <option value="Ahorro">Ahorro</option>
-        <option value="Electrodoméstico">Electrodoméstico</option>
-    </select>
+        <select name="tipo" required>
+            <option value="Ahorro">Ahorro</option>
+            <option value="Electrodoméstico">Electrodoméstico</option>
+        </select>
 
-    <button type="submit" class="btn-principal">Guardar</button>
-</form>
+        <br><br>
+        <button type="submit" class="btn">Guardar</button>
+    </form>
 </div>
 <br>
 <?php endif; ?>
@@ -41,11 +42,11 @@
     <td><?= number_format($meta['porcentaje'],1) ?>%</td>
     <td>
         <form method="POST" action="metas.php?action=aportar&id=<?= $meta['id'] ?>" style="display:inline;">
-            <input type="number" step="0.01" name="monto" placeholder="Aporte" required>
-            <button type="submit">Aportar</button>
+            <input type="number" step="0.01" name="monto" placeholder="Aporte" required style="width: 80px;">
+            <button type="submit" class="btn-mini">Aportar</button>
         </form>
 
-        <a href="metas.php?action=delete&id=<?= $meta['id'] ?>" onclick="return confirm('¿Eliminar meta?')">Eliminar</a>
+        <a class="btn-mini-rojo" href="metas.php?action=delete&id=<?= $meta['id'] ?>" onclick="return confirm('¿Eliminar meta?')">🗑</a>
     </td>
 </tr>
 <?php endforeach; ?>
