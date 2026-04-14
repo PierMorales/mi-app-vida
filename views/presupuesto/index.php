@@ -1,6 +1,10 @@
-<h1>Presupuestos</h1>
+<?php require_once '../layouts/header.php'; ?>
 
-<a href="presupuesto.php?action=crear">➕ Nuevo Presupuesto</a>
+<h1>📊 Presupuestos</h1>
+
+<div class="kpi-card form-container">
+<a href="presupuesto.php?action=crear" class="btn">➕ Nuevo Presupuesto</a>
+<br><br>
 <br><br>
 
 <?php if (($_GET['action'] ?? '') === 'crear'): ?>
@@ -15,12 +19,14 @@
 
     <input type="date" name="fecha_inicio" required>
 
-    <button type="submit">Guardar</button>
+    <button type="submit" class="btn-principal">Guardar</button>
 </form>
+</div>
 <br>
 <?php endif; ?>
 
-<table border="1" cellpadding="10">
+<div class="kpi-card">
+<table class="tabla-moderna">
 <tr>
     <th>Monto</th>
     <th>Periodo</th>
@@ -39,6 +45,9 @@
 </tr>
 <?php endforeach; ?>
 </table>
+</div>
 
 <br>
-<a href="../dashboard.php">⬅ Volver</a>
+<a href="../dashboard.php" class="btn">⬅ Volver</a>
+
+<?php require_once '../layouts/footer.php'; ?>

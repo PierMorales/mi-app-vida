@@ -1,6 +1,9 @@
-<h1>Metas</h1>
+<?php require_once '../layouts/header.php'; ?>
 
-<a href="metas.php?action=crear">➕ Nueva Meta</a>
+<h1>🎯 Metas</h1>
+
+<div class="kpi-card form-container">
+<a href="metas.php?action=crear" class="btn">➕ Nueva Meta</a>
 <br><br>
 
 <?php if (($_GET['action'] ?? '') === 'crear'): ?>
@@ -14,12 +17,14 @@
         <option value="Electrodoméstico">Electrodoméstico</option>
     </select>
 
-    <button type="submit">Guardar</button>
+    <button type="submit" class="btn-principal">Guardar</button>
 </form>
+</div>
 <br>
 <?php endif; ?>
 
-<table border="1" cellpadding="10">
+<div class="kpi-card">
+<table class="tabla-moderna">
 <tr>
     <th>Meta</th>
     <th>Objetivo</th>
@@ -45,6 +50,9 @@
 </tr>
 <?php endforeach; ?>
 </table>
+</div>
 
 <br>
-<a href="../dashboard.php">⬅ Volver</a>
+<a href="../dashboard.php" class="btn">⬅ Volver</a>
+
+<?php require_once '../layouts/footer.php'; ?>

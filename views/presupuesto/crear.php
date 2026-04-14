@@ -36,7 +36,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<h1>Crear Presupuesto</h1>
+<?php require_once '../../layouts/header.php'; ?>
+
+<h1>➕ Crear Presupuesto</h1>
+
+<div class="kpi-card form-container">
 
 <form method="POST">
 
@@ -56,8 +60,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <input type="date" name="fecha_inicio" required>
     <br><br>
 
-    <button type="submit">Guardar</button>
+    <button type="submit" class="btn-principal">Guardar</button>
 </form>
+</div>
 
 <br>
-<a href="index.php">⬅ Volver</a>
+<a href="index.php" class="btn">⬅ Volver</a>
+
+<?php require_once '../../layouts/footer.php'; ?>

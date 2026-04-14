@@ -1,6 +1,9 @@
-<h1>Rutinas</h1>
+<?php require_once '../layouts/header.php'; ?>
 
-<a href="rutinas.php?action=crear">➕ Nueva Rutina</a>
+<h1>💪 Rutinas</h1>
+
+<div class="kpi-card form-container">
+<a href="rutinas.php?action=crear" class="btn">➕ Nueva Rutina</a>
 <br><br>
 
 <?php if (($_GET['action'] ?? '') === 'crear'): ?>
@@ -12,12 +15,14 @@
 
     <input type="text" name="tipo" placeholder="Push / Pull / Pierna" required>
     <textarea name="ejercicios" placeholder="Ejercicios..." required></textarea>
-    <button type="submit">Guardar</button>
+    <button type="submit" class="btn-principal">Guardar</button>
 </form>
+</div>
 <br>
 <?php endif; ?>
 
-<table border="1" cellpadding="10">
+<div class="kpi-card">
+<table class="tabla-moderna">
 <tr>
     <th>Día</th>
     <th>Tipo</th>
@@ -34,6 +39,9 @@
 </tr>
 <?php endforeach; ?>
 </table>
+</div>
 
 <br>
-<a href="../dashboard.php">⬅ Volver</a>
+<a href="../dashboard.php" class="btn">⬅ Volver</a>
+
+<?php require_once '../layouts/footer.php'; ?>

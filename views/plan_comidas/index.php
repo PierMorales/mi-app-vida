@@ -1,6 +1,10 @@
-<h1>Plan de Comidas</h1>
+<?php require_once '../layouts/header.php'; ?>
 
-<a href="plan_comidas.php?action=crear">➕ Nuevo Plan</a>
+<h1>🍽 Plan de Comidas</h1>
+
+<div class="kpi-card form-container">
+<a href="plan_comidas.php?action=crear" class="btn">➕ Nuevo Plan</a>
+<br><br>
 <br><br>
 
 <?php if (($_GET['action'] ?? '') === 'crear'): ?>
@@ -15,12 +19,14 @@
     <input type="text" name="cena" placeholder="Cena">
     <input type="number" name="calorias_estimadas" placeholder="Calorías estimadas">
 
-    <button type="submit">Guardar</button>
+    <button type="submit" class="btn-principal">Guardar</button>
 </form>
+</div>
 <br>
 <?php endif; ?>
 
-<table border="1" cellpadding="10">
+<div class="kpi-card">
+<table class="tabla-moderna">
 <tr>
     <th>Día</th>
     <th>Desayuno</th>
@@ -43,6 +49,9 @@
 </tr>
 <?php endforeach; ?>
 </table>
+</div>
 
 <br>
-<a href="../dashboard.php">⬅ Volver</a>
+<a href="../dashboard.php" class="btn">⬅ Volver</a>
+
+<?php require_once '../layouts/footer.php'; ?>
