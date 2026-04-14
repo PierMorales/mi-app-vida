@@ -19,48 +19,20 @@
 
 <?php if (($_GET['action'] ?? '') === 'crear'): ?>
 
-<div class="kpi-card form-container">
+<div class="kpi-card">
 
     <form method="POST" action="gastos.php?action=store">
 
-        <div class="form-group">
-            <label>Fecha</label>
-            <input type="date"
-                   name="fecha"
-                   class="form-input"
-                   required>
-        </div>
+        <input type="date" name="fecha" required>
 
-        <div class="form-group">
-            <label>Categoría</label>
-            <input type="text"
-                   name="categoria"
-                   class="form-input"
-                   placeholder="Ej: Alimentación"
-                   required>
-        </div>
+        <input type="text" name="categoria" placeholder="Categoría (Ej: Alimentación)" required>
 
-        <div class="form-group">
-            <label>Monto</label>
-            <input type="number"
-                   step="0.01"
-                   name="monto"
-                   class="form-input"
-                   placeholder="0.00"
-                   required>
-        </div>
+        <input type="number" step="0.01" name="monto" placeholder="Monto" required>
 
-        <div class="form-group">
-            <label>Descripción</label>
-            <input type="text"
-                   name="descripcion"
-                   class="form-input"
-                   placeholder="Opcional">
-        </div>
+        <input type="text" name="descripcion" placeholder="Descripción (Opcional)">
 
-        <button type="submit" class="btn-principal">
-            Guardar Gasto
-        </button>
+        <br><br>
+        <button type="submit" class="btn">Guardar Gasto</button>
 
     </form>
 
