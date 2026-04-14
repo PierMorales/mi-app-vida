@@ -1,18 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Registro</title>
+<meta charset="UTF-8">
+<title>Registro - Mi Vida</title>
+<link rel="stylesheet" href="../css/estilos.css">
 </head>
-<body>
+<body class="login-body">
+
+<div class="login-container">
+
     <h2>Registro</h2>
 
     <form action="procesar_registro.php" method="POST">
-        <input type="text" name="nombre" placeholder="Nombre" required><br><br>
-        <input type="email" name="email" placeholder="Email" required><br><br>
-        <input type="password" name="password" placeholder="Contraseña" required><br><br>
-        <button type="submit">Registrarse</button>
+
+        <input type="text" name="nombre" placeholder="Tu Nombre" required>
+
+        <input type="email" name="email" placeholder="Correo electrónico" required>
+
+        <input type="password" name="password" placeholder="Contraseña" required>
+
+        <button type="submit" class="login-btn">
+            Registrarse
+        </button>
+
     </form>
 
-    <a href="login.php">Ya tengo cuenta</a>
+    <a href="login.php" class="login-link">
+        ¿Ya tienes cuenta? Inicia Sesión
+    </a>
+
+</div>
+
 </body>
 </html>
