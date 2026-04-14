@@ -1,0 +1,300 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f6f9;
+    color: #333;
+}
+
+/* LAYOUT */
+
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    width: 240px;
+    background: #2f3e4e;
+    color: white;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.sidebar a {
+    display: block;
+    color: #cbd5e0;
+    text-decoration: none;
+    padding: 10px 0;
+    transition: 0.2s;
+}
+
+.sidebar a:hover {
+    color: white;
+}
+
+/* MAIN CONTENT */
+
+.main {
+    flex: 1;
+    padding: 30px;
+}
+
+/* TOPBAR */
+
+.topbar {
+    background: white;
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* KPI CARDS */
+
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.kpi-card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.kpi-card h3 {
+    font-size: 14px;
+    color: #888;
+    margin: 0;
+}
+
+.kpi-value {
+    font-size: 26px;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.verde {
+    color: #2ecc71;
+}
+
+.rojo {
+    color: #e74c3c;
+}
+
+/* PROGRESS BAR */
+
+.progress-container {
+    background: #eee;
+    border-radius: 10px;
+    height: 12px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    transition: 0.3s ease;
+}
+
+.progress-green {
+    background: #2ecc71;
+}
+
+.progress-orange {
+    background: #f39c12;
+}
+
+.progress-red {
+    background: #e74c3c;
+}
+
+
+/* ================= LOGIN ================= */
+
+.login-body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #2f3e4e, #4a6fa5);
+}
+
+.login-container {
+    background: #ffffff;
+    padding: 40px;
+    width: 350px;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.login-container h2 {
+    margin-bottom: 25px;
+    font-weight: 600;
+    color: #2f3e4e;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.login-container input:focus {
+    border-color: #4a6fa5;
+    outline: none;
+    box-shadow: 0 0 5px rgba(74, 111, 165, 0.3);
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #2f3e4e;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.login-btn:hover {
+    background: #1f2c3a;
+}
+
+.login-link {
+    margin-top: 15px;
+    display: block;
+    font-size: 13px;
+    color: #4a6fa5;
+    text-decoration: none;
+}
+
+/* TABLA MODERNA */
+
+.tabla-moderna {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla-moderna th {
+    background: #f4f6f9;
+    padding: 12px;
+    text-align: left;
+}
+
+.tabla-moderna td {
+    padding: 12px;
+    border-top: 1px solid #eee;
+}
+
+/* BADGES */
+
+.badge-verde {
+    background: #eafaf1;
+    color: #27ae60;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.badge-naranja {
+    background: #fff4e5;
+    color: #e67e22;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+/* BOTONES PEQUEÑOS */
+
+.btn-mini {
+    padding: 6px 10px;
+    background: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+.btn-mini-rojo {
+    padding: 6px 10px;
+    background: #e74c3c;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+.badge-rojo {
+    background: #ffe5e5;
+    color: #c0392b;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+/* ================= FORMULARIOS ================= */
+
+.form-container {
+    max-width: 500px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.form-input:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 6px rgba(52, 152, 219, 0.2);
+}
+
+.btn-principal {
+    padding: 12px 20px;
+    background: #2c3e50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.btn-principal:hover {
+    background: #1f2c3a;
+}
