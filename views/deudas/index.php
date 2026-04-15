@@ -1,4 +1,4 @@
-<?php require_once '../layouts/header.php'; ?>
+<?php require_once __DIR__ . '/../../layouts/header.php'; ?>
 
 <h1>💳 Deudas</h1>
 
@@ -95,4 +95,4 @@
 <br>
 <a href="../dashboard.php" class="btn">⬅ Volver</a>
 
-<?php require_once '../layouts/footer.php'; ?>
+<?php require_once __DIR__ . '/../../layouts/footer.php'; ?>

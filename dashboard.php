@@ -99,90 +99,61 @@ if ($porcentajeUso >= 70) $colorBarra = 'progress-orange';
 if ($porcentajeUso >= 90) $colorBarra = 'progress-red';
 ?>
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<title>Mi Vida - Dashboard</title>
-<link rel="stylesheet" href="css/estilos.css">
-</head>
-<body>
+<?php require_once 'layouts/header.php'; ?>
 
-<div class="layout">
+<div class="topbar">
+    <strong>Resumen General</strong>
+</div>
 
-    <div class="sidebar">
-        <h2>Mi Vida</h2>
-        <a href="dashboard.php">🏠 Dashboard</a>
-        <a href="public/gastos.php">💵 Gastos</a>
-        <a href="public/compras.php">🛒 Compras</a>
-        <a href="public/metas.php">🎯 Metas</a>
-        <a href="public/deudas.php">💳 Deudas</a>
-        <a href="public/presupuesto.php">📊 Presupuesto</a>
-        <a href="public/peso.php">⚖️ Peso</a>
-        <a href="public/rutinas.php">💪 Rutinas</a>
-        <a href="public/plan_comidas.php">🍽 Plan Comidas</a>
-        <a href="auth/logout.php">🚪 Salir</a>
+<div class="kpi-grid">
+
+    <div class="kpi-card">
+        <h3>💰 Disponible</h3>
+        <div class="kpi-value <?= $dineroDisponible >= 0 ? 'verde' : 'rojo' ?>">
+            $<?= number_format($dineroDisponible,2) ?>
+        </div>
     </div>
 
-    <div class="main">
-
-        <div class="topbar">
-            <strong>Resumen General</strong>
+    <div class="kpi-card">
+        <h3>📊 Presupuesto</h3>
+        <div class="kpi-value">
+            $<?= number_format($presupuestoActivo['monto'] ?? 0,2) ?>
         </div>
+    </div>
 
-        <div class="kpi-grid">
-
-            <div class="kpi-card">
-                <h3>💰 Disponible</h3>
-                <div class="kpi-value <?= $dineroDisponible >= 0 ? 'verde' : 'rojo' ?>">
-                    $<?= number_format($dineroDisponible,2) ?>
-                </div>
-            </div>
-
-            <div class="kpi-card">
-                <h3>📊 Presupuesto</h3>
-                <div class="kpi-value">
-                    $<?= number_format($presupuestoActivo['monto'] ?? 0,2) ?>
-                </div>
-            </div>
-
-            <div class="kpi-card">
-                <h3>🛒 Compras Pendientes</h3>
-                <div class="kpi-value">
-                    $<?= number_format($totalComprasPendientes,2) ?>
-                </div>
-            </div>
-
-            <div class="kpi-card">
-                <h3>💳 Deudas</h3>
-                <div class="kpi-value">
-                    $<?= number_format($total_deudas,2) ?>
-                </div>
-            </div>
-
+    <div class="kpi-card">
+        <h3>🛒 Compras Pendientes</h3>
+        <div class="kpi-value">
+            $<?= number_format($totalComprasPendientes,2) ?>
         </div>
+    </div>
 
-        <div class="kpi-card">
-            <h3>Uso del Presupuesto (<?= number_format($porcentajeUso,1) ?>%)</h3>
-
-            <div class="progress-container">
-                <div class="progress-bar <?= $colorBarra ?>" 
-                     style="width: <?= $porcentajeUso ?>%;">
-                </div>
-            </div>
-
-            <p>Gastado: $<?= number_format($totalGastosPeriodo,2) ?></p>
-
-            <?php if ($totalComprasPendientes > $dineroDisponible): ?>
-                <div class="alerta-roja">
-                    ⚠️ Tus compras superan tu dinero disponible.
-                </div>
-            <?php endif; ?>
+    <div class="kpi-card">
+        <h3>💳 Deudas</h3>
+        <div class="kpi-value">
+            $<?= number_format($total_deudas,2) ?>
         </div>
-
     </div>
 
 </div>
 
-</body>
-</html>
+<div class="kpi-card">
+    <h3>Uso del Presupuesto (<?= number_format($porcentajeUso,1) ?>%)</h3>
+
+    <div class="progress-container">
+        <div class="progress-bar <?= $colorBarra ?>" 
+                style="width: <?= $porcentajeUso ?>%;">
+        </div>
+    </div>
+
+    <p>Gastado: $<?= number_format($totalGastosPeriodo,2) ?></p>
+
+    <?php if ($totalComprasPendientes > $dineroDisponible): ?>
+        <div class="alerta-roja">
+            ⚠️ Tus compras superan tu dinero disponible.
+        </div>
+    <?php endif; ?>
+</div>
+
+<?php require_once 'layouts/footer.php'; ?>
+
