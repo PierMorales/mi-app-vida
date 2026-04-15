@@ -1,4 +1,4 @@
-<?php require_once '../layouts/header.php'; ?>
+<?php require_once __DIR__ . '/../../layouts/header.php'; ?>
 
 <h1>📊 Presupuestos</h1>
 
@@ -8,7 +8,7 @@
 <?php if (($_GET['action'] ?? '') === 'crear'): ?>
 <div class="kpi-card">
     <form method="POST" action="presupuesto.php?action=store">
-        <input type="number" step="0.01" name="monto" placeholder="Monto" required>
+        <input type="number" step="0.01" name="monto" placeholder="Monto ($)" required>
 
         <select name="tipo_periodo" required>
             <option value="semanal">Semanal</option>
@@ -19,7 +19,7 @@
         <input type="date" name="fecha_inicio" required>
 
         <br><br>
-        <button type="submit" class="btn">Guardar</button>
+        <button type="submit" class="btn">Guardar Presupuesto</button>
     </form>
 </div>
 <br>
@@ -50,4 +50,5 @@
 <br>
 <a href="../dashboard.php" class="btn">⬅ Volver</a>
 
-<?php require_once '../layouts/footer.php'; ?>
+<?php require_once __DIR__ . '/../../layouts/footer.php'; ?>
+

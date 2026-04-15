@@ -1,4 +1,4 @@
-<?php require_once '../layouts/header.php'; ?>
+<?php require_once __DIR__ . '/../../../layouts/header.php'; ?>
 
 <h1>⚖️ Registro de Peso</h1>
 
@@ -9,15 +9,14 @@
 <div class="kpi-card">
     <form method="POST" action="peso.php?action=store">
         <input type="date" name="fecha" required>
-        <input type="number" step="0.1" name="peso" placeholder="Peso en kg" required>
+        <input type="number" step="0.1" name="peso" placeholder="Peso (kg)" required>
+        
         <br><br>
-        <button type="submit" class="btn">Guardar</button>
+        <button type="submit" class="btn">Guardar Peso</button>
     </form>
 </div>
 <br>
 <?php endif; ?>
-
-<br>
 
 <div class="kpi-card">
 <table class="tabla-moderna">
@@ -38,4 +37,5 @@
 <br>
 <a href="../dashboard.php" class="btn">⬅ Volver</a>
 
-<?php require_once '../layouts/footer.php'; ?>
+<?php require_once __DIR__ . '/../../../layouts/footer.php'; ?>
+

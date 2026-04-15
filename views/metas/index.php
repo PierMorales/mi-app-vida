@@ -1,4 +1,4 @@
-<?php require_once '../layouts/header.php'; ?>
+<?php require_once __DIR__ . '/../../layouts/header.php'; ?>
 
 <h1>🎯 Metas</h1>
 
@@ -9,7 +9,7 @@
 <div class="kpi-card">
     <form method="POST" action="metas.php?action=store">
         <input type="text" name="nombre_meta" placeholder="Nombre de la meta" required>
-        <input type="number" step="0.01" name="monto_objetivo" placeholder="Monto objetivo" required>
+        <input type="number" step="0.01" name="monto_objetivo" placeholder="Objetivo ($)" required>
         <input type="date" name="fecha_objetivo" required>
 
         <select name="tipo" required>
@@ -18,7 +18,7 @@
         </select>
 
         <br><br>
-        <button type="submit" class="btn">Guardar</button>
+        <button type="submit" class="btn">Guardar Meta</button>
     </form>
 </div>
 <br>
@@ -56,4 +56,5 @@
 <br>
 <a href="../dashboard.php" class="btn">⬅ Volver</a>
 
-<?php require_once '../layouts/footer.php'; ?>
+<?php require_once __DIR__ . '/../../layouts/footer.php'; ?>
+

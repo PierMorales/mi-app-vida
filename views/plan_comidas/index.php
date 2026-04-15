@@ -1,4 +1,4 @@
-<?php require_once '../layouts/header.php'; ?>
+<?php require_once __DIR__ . '/../../layouts/header.php'; ?>
 
 <h1>🍽 Plan de Comidas</h1>
 
@@ -16,10 +16,10 @@
         <input type="text" name="desayuno" placeholder="Desayuno">
         <input type="text" name="almuerzo" placeholder="Almuerzo">
         <input type="text" name="cena" placeholder="Cena">
-        <input type="number" name="calorias_estimadas" placeholder="Calorías estimadas">
+        <input type="number" name="calorias_estimadas" placeholder="Kcal Est.">
         
         <br><br>
-        <button type="submit" class="btn">Guardar</button>
+        <button type="submit" class="btn">Guardar Plan</button>
     </form>
 </div>
 <br>
@@ -54,4 +54,5 @@
 <br>
 <a href="../dashboard.php" class="btn">⬅ Volver</a>
 
-<?php require_once '../layouts/footer.php'; ?>
+<?php require_once __DIR__ . '/../../layouts/footer.php'; ?>
+

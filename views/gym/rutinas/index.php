@@ -1,4 +1,4 @@
-<?php require_once '../layouts/header.php'; ?>
+<?php require_once __DIR__ . '/../../../layouts/header.php'; ?>
 
 <h1>💪 Rutinas</h1>
 
@@ -13,11 +13,13 @@
             <option>Jueves</option><option>Viernes</option><option>Sábado</option><option>Domingo</option>
         </select>
 
-        <input type="text" name="tipo" placeholder="Push / Pull / Pierna" required>
-        <textarea name="ejercicios" placeholder="Ejercicios..." required></textarea>
+        <input type="text" name="tipo" placeholder="Tipo (Push / Pull / Pierna)" required>
         
         <br><br>
-        <button type="submit" class="btn">Guardar</button>
+        <textarea name="ejercicios" placeholder="Ejercicios (uno por línea)..." required style="width: 100%; height: 80px;"></textarea>
+        
+        <br><br>
+        <button type="submit" class="btn">Guardar Rutina</button>
     </form>
 </div>
 <br>
@@ -48,4 +50,5 @@
 <br>
 <a href="../dashboard.php" class="btn">⬅ Volver</a>
 
-<?php require_once '../layouts/footer.php'; ?>
+<?php require_once __DIR__ . '/../../../layouts/footer.php'; ?>
+
