@@ -28,4 +28,7 @@ if ($action === 'delete') {
 
 $planes = $controller->index($usuario_id);
 
+require_once __DIR__ . '/../layouts/header.php';
 require_once __DIR__ . '/../views/plan_comidas/index.php';
+require_once __DIR__ . '/../layouts/footer.php';
+

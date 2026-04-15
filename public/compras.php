@@ -35,4 +35,7 @@ if ($action === 'delete') {
 $compras = $controller->index($usuario_id);
 $totales = $controller->totales($usuario_id);
 
+require_once __DIR__ . '/../layouts/header.php';
 require_once __DIR__ . '/../views/compras/index.php';
+require_once __DIR__ . '/../layouts/footer.php';
+

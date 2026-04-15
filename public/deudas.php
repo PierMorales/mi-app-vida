@@ -21,13 +21,13 @@ if ($action === 'store' && $_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 if ($action === 'pagar') {
-    $controller->pagar($usuario_id, $_GET['id']);
+    $controller->pagar($_GET['id'], $usuario_id);
     header("Location: deudas.php");
     exit;
 }
 
 if ($action === 'delete') {
-    $controller->destroy($usuario_id, $_GET['id']);
+    $controller->destroy($_GET['id'], $usuario_id);
     header("Location: deudas.php");
     exit;
 }
@@ -35,4 +35,6 @@ if ($action === 'delete') {
 $deudas = $controller->index($usuario_id);
 $total_pendiente = $controller->totalPendiente($usuario_id);
 
+require_once __DIR__ . '/../layouts/header.php';
 require_once __DIR__ . '/../views/deudas/index.php';
+require_once __DIR__ . '/../layouts/footer.php';

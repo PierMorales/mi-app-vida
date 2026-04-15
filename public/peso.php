@@ -22,4 +22,7 @@ if ($action === 'store' && $_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $pesos = $controller->index($usuario_id);
 
+require_once __DIR__ . '/../layouts/header.php';
 require_once __DIR__ . '/../views/gym/peso/index.php';
+require_once __DIR__ . '/../layouts/footer.php';
+

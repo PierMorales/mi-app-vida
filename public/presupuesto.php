@@ -34,4 +34,7 @@ if ($action === 'delete') {
 
 $presupuestos = $controller->index($usuario_id);
 
+require_once __DIR__ . '/../layouts/header.php';
 require_once __DIR__ . '/../views/presupuesto/index.php';
+require_once __DIR__ . '/../layouts/footer.php';
+

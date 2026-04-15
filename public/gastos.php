@@ -31,8 +31,8 @@ if ($action === 'delete') {
 /* ==== DATOS PARA LA VISTA ==== */
 
 $gastos = $controller->index($usuario_id);
-$total_mes = $controller->totalMes($usuario_id);
+$total_mes = $controller->obtenerTotalMes($usuario_id);
 
-/* ==== CARGAR VISTA ==== */
-
+require_once __DIR__ . '/../layouts/header.php';
 require_once __DIR__ . '/../views/gastos/index.php';
+require_once __DIR__ . '/../layouts/footer.php';

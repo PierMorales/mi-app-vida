@@ -1,4 +1,4 @@
-<?php require_once __DIR__ . '/../../layouts/header.php'; ?>
+
 
 <h1>💵 Gastos</h1>
 
@@ -79,4 +79,4 @@
 <br>
 <a href="../dashboard.php" class="btn">⬅ Volver</a>
 
-<?php require_once __DIR__ . '/../../layouts/footer.php'; ?>
+

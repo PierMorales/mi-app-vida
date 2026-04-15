@@ -21,17 +21,22 @@ if ($action === 'store' && $_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 if ($action === 'aportar' && $_SERVER['REQUEST_METHOD'] === 'POST') {
-    $controller->aportar($usuario_id, $_GET['id'], $_POST['monto']);
+    $controller->aportar($_GET['id'], $usuario_id, $_POST['monto']);
     header("Location: metas.php");
     exit;
 }
 
+
 if ($action === 'delete') {
-    $controller->destroy($usuario_id, $_GET['id']);
+    $controller->destroy($_GET['id'], $usuario_id);
     header("Location: metas.php");
     exit;
 }
+
 
 $metas = $controller->index($usuario_id);
 
+require_once __DIR__ . '/../layouts/header.php';
 require_once __DIR__ . '/../views/metas/index.php';
+require_once __DIR__ . '/../layouts/footer.php';
+
