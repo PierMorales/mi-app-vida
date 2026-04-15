@@ -1,6 +1,6 @@
 <?php require_once __DIR__ . '/../../layouts/header.php'; ?>
 
-<h1>🎯 Metas</h1>
+<h1>🎯 Metas de Ahorro</h1>
 
 <a href="metas.php?action=crear" class="btn">➕ Nueva Meta</a>
 <br><br>
@@ -8,15 +8,13 @@
 <?php if (($_GET['action'] ?? '') === 'crear'): ?>
 <div class="kpi-card">
     <form method="POST" action="metas.php?action=store">
-        <input type="text" name="nombre_meta" placeholder="Nombre de la meta" required>
-        <input type="number" step="0.01" name="monto_objetivo" placeholder="Objetivo ($)" required>
+        <input type="text" name="nombre_meta" placeholder="Nombre de la Meta (Ej: Viaje)" required>
+        <input type="number" step="0.01" name="monto_objetivo" placeholder="Monto Objetivo ($)" required>
         <input type="date" name="fecha_objetivo" required>
-
-        <select name="tipo" required>
-            <option value="Ahorro">Ahorro</option>
-            <option value="Electrodoméstico">Electrodoméstico</option>
+        <select name="tipo">
+            <option value="ahorro">Ahorro</option>
+            <option value="inversion">Inversión</option>
         </select>
-
         <br><br>
         <button type="submit" class="btn">Guardar Meta</button>
     </form>
@@ -24,37 +22,35 @@
 <br>
 <?php endif; ?>
 
-<div class="kpi-card">
-<table class="tabla-moderna">
-<tr>
-    <th>Meta</th>
-    <th>Objetivo</th>
-    <th>Ahorrado</th>
-    <th>Progreso</th>
-    <th>Acciones</th>
-</tr>
+<div class="kpi-grid">
+<?php foreach ($metas as $m): 
+    $progreso = ($m['monto_actual'] / $m['monto_objetivo']) * 100;
+    $color = ($progreso >= 100) ? 'verde' : 'azul';
+?>
+    <div class="kpi-card">
+        <h3><?= htmlspecialchars($m['nombre_meta']) ?></h3>
+        <p>Objetivo: $<?= number_format($m['monto_objetivo'], 2) ?></p>
+        <div class="kpi-value <?= $color ?>">
+            $<?= number_format($m['monto_actual'], 2) ?>
+        </div>
+        
+        <div class="progress-container">
+            <div class="progress-bar" style="width: <?= min($progreso, 100) ?>%;"></div>
+        </div>
+        <p><?= number_format($progreso, 1) ?>% alcanzado</p>
 
-<?php foreach ($metas as $meta): ?>
-<tr>
-    <td><?= htmlspecialchars($meta['nombre_meta']) ?></td>
-    <td>$<?= number_format($meta['monto_objetivo'],2) ?></td>
-    <td>$<?= number_format($meta['ahorrado'],2) ?></td>
-    <td><?= number_format($meta['porcentaje'],1) ?>%</td>
-    <td>
-        <form method="POST" action="metas.php?action=aportar&id=<?= $meta['id'] ?>" style="display:inline;">
-            <input type="number" step="0.01" name="monto" placeholder="Aporte" required style="width: 80px;">
-            <button type="submit" class="btn-mini">Aportar</button>
+        <form method="POST" action="metas.php?action=aportar&id=<?= $m['id'] ?>" style="margin-top:10px;">
+            <input type="number" step="0.01" name="monto" placeholder="Monto a aportar" required style="width:120px;">
+            <button type="submit" class="btn-mini-azul">Aportar</button>
         </form>
 
-        <a class="btn-mini-rojo" href="metas.php?action=delete&id=<?= $meta['id'] ?>" onclick="return confirm('¿Eliminar meta?')">🗑</a>
-    </td>
-</tr>
+        <br>
+        <a class="btn-mini-rojo" href="metas.php?action=delete&id=<?= $m['id'] ?>" onclick="return confirm('¿Eliminar meta?')">Eliminar 🗑</a>
+    </div>
 <?php endforeach; ?>
-</table>
 </div>
 
 <br>
 <a href="../dashboard.php" class="btn">⬅ Volver</a>
 
 <?php require_once __DIR__ . '/../../layouts/footer.php'; ?>
-

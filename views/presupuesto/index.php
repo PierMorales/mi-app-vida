@@ -36,7 +36,7 @@
 
 <?php foreach ($presupuestos as $p): ?>
 <tr>
-    <td>$<?= number_format($p['monto'],2) ?></td>
+    <td>$<?= number_format($p['monto'], 2) ?></td>
     <td><?= ucfirst($p['tipo_periodo']) ?></td>
     <td><?= $p['fecha_inicio'] ?></td>
     <td>
@@ -51,4 +51,3 @@
 <a href="../dashboard.php" class="btn">⬅ Volver</a>
 
 <?php require_once __DIR__ . '/../../layouts/footer.php'; ?>
-

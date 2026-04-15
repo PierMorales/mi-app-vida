@@ -1,6 +1,6 @@
 <?php require_once __DIR__ . '/../../../layouts/header.php'; ?>
 
-<h1>💪 Rutinas</h1>
+<h1>💪 Mis Rutinas</h1>
 
 <a href="rutinas.php?action=crear" class="btn">➕ Nueva Rutina</a>
 <br><br>
@@ -8,16 +8,8 @@
 <?php if (($_GET['action'] ?? '') === 'crear'): ?>
 <div class="kpi-card">
     <form method="POST" action="rutinas.php?action=store">
-        <select name="dia" required>
-            <option>Lunes</option><option>Martes</option><option>Miércoles</option>
-            <option>Jueves</option><option>Viernes</option><option>Sábado</option><option>Domingo</option>
-        </select>
-
-        <input type="text" name="tipo" placeholder="Tipo (Push / Pull / Pierna)" required>
-        
-        <br><br>
-        <textarea name="ejercicios" placeholder="Ejercicios (uno por línea)..." required style="width: 100%; height: 80px;"></textarea>
-        
+        <input type="text" name="nombre_rutina" placeholder="Nombre (Ej: Empuje, Pierna)" required>
+        <textarea name="descripcion" placeholder="Detalles de los ejercicios..." style="width: 100%; height: 100px; margin-top: 10px;"></textarea>
         <br><br>
         <button type="submit" class="btn">Guardar Rutina</button>
     </form>
@@ -25,30 +17,18 @@
 <br>
 <?php endif; ?>
 
-<div class="kpi-card">
-<table class="tabla-moderna">
-<tr>
-    <th>Día</th>
-    <th>Tipo</th>
-    <th>Ejercicios</th>
-    <th>Acción</th>
-</tr>
-
+<div class="kpi-grid">
 <?php foreach ($rutinas as $r): ?>
-<tr>
-    <td><?= htmlspecialchars($r['dia']) ?></td>
-    <td><?= htmlspecialchars($r['tipo']) ?></td>
-    <td><?= nl2br(htmlspecialchars($r['ejercicios'])) ?></td>
-    <td>
+    <div class="kpi-card">
+        <h3><?= htmlspecialchars($r['nombre_rutina']) ?></h3>
+        <p style="white-space: pre-line;"><?= htmlspecialchars($r['descripcion']) ?></p>
+        <br>
         <a class="btn-mini-rojo" href="rutinas.php?action=delete&id=<?= $r['id'] ?>" onclick="return confirm('¿Eliminar rutina?')">🗑</a>
-    </td>
-</tr>
+    </div>
 <?php endforeach; ?>
-</table>
 </div>
 
 <br>
-<a href="../dashboard.php" class="btn">⬅ Volver</a>
+<a href="../../dashboard.php" class="btn">⬅ Volver</a>
 
 <?php require_once __DIR__ . '/../../../layouts/footer.php'; ?>
-
