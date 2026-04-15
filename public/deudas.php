@@ -21,13 +21,13 @@ if ($action === 'store' && $_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 if ($action === 'pagar') {
-    $controller->pagar($_GET['id'], $usuario_id);
+    $controller->pagar($usuario_id, $_GET['id']);
     header("Location: deudas.php");
     exit;
 }
 
 if ($action === 'delete') {
-    $controller->destroy($_GET['id'], $usuario_id);
+    $controller->destroy($usuario_id, $_GET['id']);
     header("Location: deudas.php");
     exit;
 }

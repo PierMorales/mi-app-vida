@@ -16,4 +16,8 @@ class PesoController {
     public function store($usuario_id, $data) {
         return $this->model->crear($usuario_id, $data);
     }
+
+    public function destroy($id, $usuario_id) {
+        return $this->model->eliminar($id, $usuario_id);
+    }
 }

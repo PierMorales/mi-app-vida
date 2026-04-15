@@ -51,6 +51,6 @@
 </div>
 
 <br>
-<a href="../dashboard.php" class="btn">⬅ Volver</a>
+<a href="/dashboard.php" class="btn">⬅ Volver</a>
 
 

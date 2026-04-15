@@ -20,6 +20,12 @@ if ($action === 'store' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
+if ($action === 'delete') {
+    $controller->destroy((int)($_GET['id'] ?? 0), $usuario_id);
+    header("Location: peso.php");
+    exit;
+}
+
 $pesos = $controller->index($usuario_id);
 
 require_once __DIR__ . '/../layouts/header.php';

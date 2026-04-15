@@ -28,4 +28,12 @@ class Peso {
             $data['peso']
         ]);
     }
+
+    public function eliminar($id, $usuario_id) {
+        $stmt = $this->db->prepare("
+            DELETE FROM peso
+            WHERE id = ? AND usuario_id = ?
+        ");
+        return $stmt->execute([$id, $usuario_id]);
+    }
 }
